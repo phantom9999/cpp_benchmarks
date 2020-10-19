@@ -35,7 +35,9 @@ jobs:
       run: |
         mkdir -p ${{runner.workspace}}/build
         cd ${{runner.workspace}}/build
-        conan install .. --settings compiler.libcxx='libstdc++11'
+        conan profile new default
+        conan profile update settings.compiler.libcxx='libstdc++11' default
+        conan install ..
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
