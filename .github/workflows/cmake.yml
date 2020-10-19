@@ -33,6 +33,7 @@ jobs:
 
     - name: third-party
       run: |
+        ls
         mkdir -p ${{runner.workspace}}/build
         cd ${{runner.workspace}}/build
         conan install .. || true
