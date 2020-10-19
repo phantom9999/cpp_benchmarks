@@ -1,40 +1,14 @@
 cmake_minimum_required(VERSION 3.12)
-project(asio_benchmarks)
+project(cpp_benchmarks)
+
+if (${PROJECT_BINARY_DIR} STREQUAL ${PROJECT_SOURCE_DIR})
+    message(FATAL_ERROR)
+endif()
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_BUILD_TYPE DEBUG)
 
-include_directories(deps/boost/include)
+include(${PROJECT_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
-link_directories(deps/boost/lib)
-
-IF (APPLE)
-    set(THREAD_LIB "boost_thread-mt")
-ELSEIF (UNIX)
-    set(THREAD_LIB "boost_thread -pthread")
-ELSE()
-    set(THREAD_LIB "boost_thread -pthread")
-ENDIF ()
-
-
-add_definitions(
-        -DBOOST_ASIO_SEPARATE_COMPILATION
-)
-
-add_library(pre_asio src/libasio.cpp)
-
-aux_source_directory(src/server2 SERVER2)
-add_executable(server2 ${SERVER2})
-
-aux_source_directory(src/server3 SERVER4)
-add_executable(server3 ${SERVER4})
-target_link_libraries(
-        server2
-        pre_asio
-        ${THREAD_LIB}
-)
-target_link_libraries(
-        server3
-        pre_asio
-        ${THREAD_LIB}
-)
+add_executable(bm_string src/bm_demo.cpp)
+conan_target_link_libraries(bm_string)
