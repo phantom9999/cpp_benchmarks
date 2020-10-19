@@ -27,6 +27,8 @@ jobs:
 
     - name: conan install
       run: pip install conan; mkdir -p ${{runner.workspace}}/build; cd ${{runner.workspace}}/build; conan install ..
+    - name: conan install
+      run: pip install conan; mkdir -p ${{runner.workspace}}/build; cd ${{runner.workspace}}/build; conan install ..
     - name: Install conan && conan package tools
       run: |
         python -m pip install --upgrade pip
