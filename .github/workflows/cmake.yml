@@ -39,6 +39,8 @@ jobs:
       #working-directory: ${{runner.workspace}}
       shell: bash
       run: |
+        pwd
+        ls
         cmake --build .
 
     - name: Release
