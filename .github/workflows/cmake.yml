@@ -37,13 +37,7 @@ jobs:
 
     - name: third-party
       run: |
-<<<<<<< HEAD
         conan install .
-=======
-        mkdir -p ${{runner.workspace}}/build
-        cd ${{runner.workspace}}/build
-        conan install .. --settings compiler.libcxx=libstdc++11
->>>>>>> 6162e10... add action
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
