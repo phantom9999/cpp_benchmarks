@@ -32,11 +32,11 @@ jobs:
 
     - name: Configure CMake
       shell: bash
-      working-directory: ${{runner.workspace}}
+      #working-directory: ${{runner.workspace}}
       run: cmake .
 
     - name: Build
-      working-directory: ${{runner.workspace}}
+      #working-directory: ${{runner.workspace}}
       shell: bash
       run: |
         cmake --build .
