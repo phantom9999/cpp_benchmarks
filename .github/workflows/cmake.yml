@@ -46,5 +46,5 @@ jobs:
     - name: Release
       uses: actions/upload-artifact@v2
       with:
-        path: ${{runner.workspace}}/bin
+        path: ./bin
 
