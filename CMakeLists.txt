@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 project(cpp_benchmarks)
 
-if (${PROJECT_BINARY_DIR} STREQUAL ${PROJECT_SOURCE_DIR})
-    message(FATAL_ERROR)
-endif()
+#if (${PROJECT_BINARY_DIR} STREQUAL ${PROJECT_SOURCE_DIR})
+#    message(FATAL_ERROR)
+#endif()
 
 set(CMAKE_CXX_STANDARD 14)
 
